@@ -509,12 +509,11 @@ document.getElementById('reset-game').addEventListener('click', () => {
     totalScore = 0; // Reset the total score to 0
     updateScore(0); // Reset the score display to 0
 
-    // Reset the firstMove flag and placedTiles array
-    firstMove = true; // Allow placing the first tile in the center again
-    placedTiles.length = 0; // Clear the list of placed tiles
+    firstMove = true; 
+    placedTiles.length = 0
 
     // Reset the game state
-    initializeGame(); // Reinitialize the tile rack and other settings
+    initializeGame();
 });
 
 // Shuffle the Tile Rack
