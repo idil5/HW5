@@ -1,3 +1,6 @@
+Github URL: https://idil5.github.io/HW5/   
+Repository: https://github.com/idil5/HW5
+
 # Scrabble Game README
 
 This document provides a comprehensive yet straightforward overview of the Scrabble game implementation. The project consists of three main files: `index.html`, `styles.css`, and `scripts.js`. Each file contributes to the game's functionality, styling, and structure.
