@@ -117,24 +117,3 @@ This file implements the game's functionality, including board generation, score
 
 - **Shuffle Rack**:
   Randomizes the order of tiles in the player's rack without affecting the game state.
-
----
-
-This project integrates drag-and-drop interactivity with dynamic game logic, creating an engaging digital Scrabble experience.
-
-### CSS and HTML Integration
-
-#### CSS Highlights:
-- **Responsive Board:**
-  The Scrabble board is styled using a grid layout for precise alignment of squares.
-- **Bonus Square Styles:**
-  Different colors and text labels for "Double Letter," "Triple Word," etc.
-- **Tile Styling:**
-  Ensures tiles are visually distinct, draggable, and interactive.
-
-#### HTML Highlights:
-- The structure supports dynamic elements like draggable tiles and droppable board squares.
-- Bonus references visually explain special squares to players.
-
-All features are implemented cohesively to deliver an accessible and visually pleasing game.
-
