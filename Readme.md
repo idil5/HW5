@@ -1,6 +1,5 @@
 Github URL: https://idil5.github.io/HW5/   
 Repository: https://github.com/idil5/HW5
-
 # Scrabble Game README
 
 This document provides a comprehensive yet straightforward overview of the Scrabble game implementation. The project consists of three main files: `index.html`, `styles.css`, and `scripts.js`. Each file contributes to the game's functionality, styling, and structure.
@@ -13,6 +12,7 @@ This document provides a comprehensive yet straightforward overview of the Scrab
 3. [JavaScript (`scripts.js`)](#javascript-scriptsjs)
 4. [How It Works](#how-it-works)
 5. [Reset and Shuffle Features](#reset-and-shuffle-features)
+6. [How to Play](#how-to-play)
 
 ---
 
@@ -117,3 +117,43 @@ This file implements the game's functionality, including board generation, score
 
 - **Shuffle Rack**:
   Randomizes the order of tiles in the player's rack without affecting the game state.
+
+---
+
+## How to Play
+
+1. **Setup**:
+   - Open the game in your browser. The Scrabble board and your tile rack will appear on the screen.
+
+2. **Placing Tiles**:
+   - Drag tiles from your rack onto the board.
+   - The first tile must be placed on the center square (marked with a star).
+   - Subsequent tiles must connect to existing tiles on the board.
+
+3. **Using Bonus Squares**:
+   - Aim to place tiles on bonus squares:
+     - "Triple Word Score": Triples the word score.
+     - "Double Word Score": Doubles the word score.
+     - "Triple Letter Score": Triples the letter score.
+     - "Double Letter Score": Doubles the letter score.
+
+4. **Submit Your Turn**:
+   - Click the "Submit Turn" button to calculate your score for the placed tiles.
+   - Your rack will automatically replenish up to 7 tiles.
+
+5. **Swap Tiles**:
+   - Drag unwanted tiles to the "Swap Box" to exchange them for new ones.
+
+6. **Resetting the Game**:
+   - Click "Reset Game" to clear the board and restart with a new set of tiles.
+
+7. **Shuffling the Rack**:
+   - Click "Shuffle Rack" to reorder your tiles randomly.
+
+8. **Winning the Game**:
+   - Continue playing and accumulating points until the tile bag is empty or you choose to stop.
+
+---
+
+This project integrates drag-and-drop interactivity with dynamic game logic, creating an engaging digital Scrabble experience.
+
