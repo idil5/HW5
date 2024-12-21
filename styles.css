@@ -1,0 +1,201 @@
+/* Board Container */
+#board {
+    display: grid;
+    grid-template-columns: repeat(15, 40px); /* 15x15 grid with equal sizes */
+    grid-template-rows: repeat(15, 40px);
+    gap: 1.5px; /* Small gaps between squares */
+    background-color: #ddd; /* Board background */
+    margin: 20px auto;
+    border: 2px solid #333; /* Board border */
+    width: 620px;
+    height: 620px;
+}
+
+/* General Square Styling */
+.board-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 9px; /* To match the font size in the image */
+    background-color: #f5f5dc; /* Default beige background color */
+    border: 1px solid #ccc;
+}
+
+.board-header {
+    text-align: center; /* Center the text horizontally */
+    position: relative; /* Allows fine-tuning its placement */
+    font-size: 2rem; /* Adjust the font size */
+    color: #4CAF50; /* Add a nice color */
+    margin-bottom: 20px; /* Add space below the header */
+    font-family: 'Arial', sans-serif; /* Add a modern, clean font */
+}
+
+
+/* Bonus Square Colors */
+.bonus-triple-word {
+    background-color: #ff6666;
+    color: black;
+    font-weight: bold;
+}
+
+.bonus-double-word {
+    background-color: #ff9999;
+    color: black;
+    font-weight: bold;
+}
+
+.bonus-triple-letter {
+    background-color: #66b2ff;
+    color: black;
+    font-weight: bold;
+}
+
+.bonus-double-letter {
+    background-color: #99ccff;
+    color: black;
+    font-weight: bold;
+}
+
+/* Center Star Square */
+.bonus-center {
+    background-color: #ffd700;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    line-height: 1;
+}
+
+#tile-rack {
+    margin: 20px auto; /* Add spacing between board and rack */
+    text-align: center; /* Center-align the tile rack */
+    width: fit-content;
+}
+
+#tiles {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add spacing between tiles */
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: grab;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.swap-box {
+    border: 2px dashed #ccc;
+    background-color: #f5f5dc; /* Light beige */
+    width: 150px;
+    height: 100px;
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swap-header{
+    text-align: center; /* Center the text horizontally */
+    position: relative;
+    font-size: 2rem;
+    color: #3f259f;
+    margin-bottom: 20px; /* Add space below the header */
+    font-family: 'Arial', sans-serif;
+}
+#score-section {
+    position: relative;
+    top: -20px;
+    text-align: center; /* Center the section horizontally */
+    margin-bottom: 20px; /* Add space below the section */
+}
+
+
+
+
+
+/* Container for Centered Board and Bonus Reference */
+.board-container {
+    display: flex;
+    justify-content: center; /* Center the board horizontally */
+    align-items: flex-start; /* Align content to the top */
+    gap: 1rem; /* Space between the board and the reference */
+    margin-top: 2rem;
+}
+
+/* Scrabble Board */
+#scrabble-board {
+    flex-shrink: 0; /* Prevent the board from shrinking */
+    margin-left: 290px; /* This value to move it further right */
+
+}
+
+
+/* Bonus Reference Items */
+.bonus-reference {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between items */
+    margin-left: 90px; /* Adjust this value to move it further right */
+    margin-top: 80px; /* Adjust this value to move it further right */
+
+
+}
+
+.reference-item {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem; /* Space between the box and text */
+}
+
+/* Bonus Box Styles */
+.bonus-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+
+}
+
+/* Bonus Square Colors */
+.bonus-triple-word {
+    background-color: #ff6666;
+}
+
+.bonus-double-word {
+    background-color: #ff9999;
+}
+
+.bonus-triple-letter {
+    background-color: #66b2ff;
+}
+
+.bonus-double-letter {
+    background-color: #99ccff;
+}
+
+.bonus-center {
+    background-color: #ffd700;
+}
+
+
+.board-square.locked {
+    background-color: #ddd; /* Gray background for locked squares */
+    cursor: not-allowed; /* Indicate they cannot be moved */
+}
+
+.tile.ui-draggable-disabled {
+    opacity: 0.5; /* Dim locked tiles for clarity */
+}
