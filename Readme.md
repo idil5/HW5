@@ -128,7 +128,7 @@ This file implements the game's functionality, including board generation, score
 2. **Placing Tiles**:
    - Drag tiles from your rack onto the board.
    - The first tile must be placed on the center square (marked with a star).
-   - Subsequent tiles must connect to existing tiles on the board.
+   - The next tiles must connect to existing tiles on the board.
 
 3. **Using Bonus Squares**:
    - Aim to place tiles on bonus squares:
@@ -152,8 +152,4 @@ This file implements the game's functionality, including board generation, score
 
 8. **Winning the Game**:
    - Continue playing and accumulating points until the tile bag is empty or you choose to stop.
-
----
-
-This project integrates drag-and-drop interactivity with dynamic game logic, creating an engaging digital Scrabble experience.
 
