@@ -488,8 +488,6 @@ function replenishRack() {
     console.log("GameTileBag after replenishing:", gameTileBag);
 }
 
-
-
 document.getElementById('reset-game').addEventListener('click', () => {
     // Remove all tiles from the board
     const tiles = document.querySelectorAll('.board-square .tile');
@@ -507,11 +505,17 @@ document.getElementById('reset-game').addEventListener('click', () => {
         }
     });
 
+    // Reset the total score
+    totalScore = 0; // Reset the total score to 0
+    updateScore(0); // Reset the score display to 0
+
+    // Reset the firstMove flag and placedTiles array
+    firstMove = true; // Allow placing the first tile in the center again
+    placedTiles.length = 0; // Clear the list of placed tiles
+
     // Reset the game state
     initializeGame(); // Reinitialize the tile rack and other settings
-    updateScore(0); // Reset the score to 0
 });
-
 
 // Shuffle the Tile Rack
 document.getElementById('shuffle-rack').addEventListener('click', () => {
