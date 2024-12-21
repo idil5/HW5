@@ -192,10 +192,10 @@
 
 
 .board-square.locked {
-    background-color: #ddd; /* Gray background for locked squares */
-    cursor: not-allowed; /* Indicate they cannot be moved */
+    background-color: #ddd;
+    cursor: not-allowed; 
 }
 
 .tile.ui-draggable-disabled {
-    opacity: 0.5; /* Dim locked tiles for clarity */
+    opacity: 0.5; 
 }
