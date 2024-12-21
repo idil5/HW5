@@ -1,11 +1,11 @@
 # Scrabble Game README
 
-This document provides a comprehensive yet straightforward overview of the Scrabble game implementation. The project consists of three main files: `scrabble.html`, `styles.css`, and `scripts.js`. Each file contributes to the game's functionality, styling, and structure.
+This document provides a comprehensive yet straightforward overview of the Scrabble game implementation. The project consists of three main files: `index.html`, `styles.css`, and `scripts.js`. Each file contributes to the game's functionality, styling, and structure.
 
 ---
 
 ## Table of Contents
-1. [HTML (`scrabble.html`)](#html-scrabblehtml)
+1. [HTML (`index.html`)](#html-indexhtml)
 2. [CSS (`styles.css`)](#css-stylescss)
 3. [JavaScript (`scripts.js`)](#javascript-scriptsjs)
 4. [How It Works](#how-it-works)
@@ -13,7 +13,7 @@ This document provides a comprehensive yet straightforward overview of the Scrab
 
 ---
 
-## HTML (`scrabble.html`)
+## HTML (`index.html`)
 This file defines the structure of the Scrabble game interface. The major sections include:
 
 ### Key Elements:
