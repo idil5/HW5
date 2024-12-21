@@ -149,7 +149,3 @@ This file implements the game's functionality, including board generation, score
 
 7. **Shuffling the Rack**:
    - Click "Shuffle Rack" to reorder your tiles randomly.
-
-8. **Winning the Game**:
-   - Continue playing and accumulating points until the tile bag is empty or you choose to stop.
-
