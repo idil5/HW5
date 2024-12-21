@@ -490,31 +490,28 @@ function replenishRack() {
 
 
 
-
-
-
-// Reset Game
 document.getElementById('reset-game').addEventListener('click', () => {
     // Remove all tiles from the board
     const tiles = document.querySelectorAll('.board-square .tile');
     tiles.forEach(tile => tile.remove()); // Remove tile elements only
 
-    // Remove 'occupied' class from squares but keep their original text
+    // Reset all board squares
     const boardSquares = document.querySelectorAll('.board-square');
     boardSquares.forEach(square => {
-        square.classList.remove('occupied');
-
-        // Restore the original text if it was a bonus square or the center
-        const originalText = square.getAttribute('data-original-text');
+        square.classList.remove('occupied', 'locked'); // Remove gameplay-related classes
+        const originalText = square.getAttribute('data-original-text'); // Restore original bonus text
         if (originalText) {
-            square.textContent = originalText;
+            square.textContent = originalText; // Reset the square text
+        } else {
+            square.textContent = ''; // Clear text if no original text exists
         }
     });
 
     // Reset the game state
-    initializeGame(); // Reinitialize the tile rack
+    initializeGame(); // Reinitialize the tile rack and other settings
     updateScore(0); // Reset the score to 0
 });
+
 
 // Shuffle the Tile Rack
 document.getElementById('shuffle-rack').addEventListener('click', () => {
