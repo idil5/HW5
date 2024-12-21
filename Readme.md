@@ -1,118 +1,124 @@
-# Scrabble Game 🧩
+# Scrabble Game Implementation
 
-Welcome to the Scrabble Game! This project is a browser-based implementation of the classic word game, built with **HTML**, **CSS**, and **JavaScript**. The game allows players to place tiles on a 15x15 board, score points based on word bonuses, and manage their tile rack.
+## Overview
+This project implements a simplified Scrabble game where players can:
+- Drag and drop tiles from a rack onto a Scrabble board.
+- Score words based on the placement of tiles and bonus squares.
+- Replenish their tile rack after each turn.
+- Restart or shuffle the game as needed.
 
----
-
-## Features
-
-### Gameplay
-- **15x15 Game Board**: Includes special squares like triple word, double word, triple letter, and double letter scores.
-- **Draggable Tiles**: Drag and drop tiles onto the board to form words.
-- **Score Calculation**: Automatically calculates and updates scores based on tile placements and bonuses.
-- **Tile Rack Management**: Replenishes the rack with new tiles after each turn.
-- **Dynamic Interactions**: Visual feedback for occupied and bonus tiles.
-
-### Bonuses
-- **Double Letter Bonus**: Multiplies the tile’s value by 2.
-- **Triple Letter Bonus**: Multiplies the tile’s value by 3.
-- **Double Word Bonus**: Multiplies the word’s total score by 2.
-- **Triple Word Bonus**: Multiplies the word’s total score by 3.
+Below is an explanation of the core functions and their implementation.
 
 ---
 
-## Files
+## Core Features
 
-### 1. **HTML (scrabble.html)**
-Defines the structure of the game interface:
-- A 15x15 grid for the board.
-- A tile rack for player tiles.
-- Buttons for submitting turns, resetting the game, and shuffling the tile rack.
-
-### 2. **CSS (styles.css)**
-Styles the game with:
-- A clean and responsive layout.
-- Visual differentiation for bonus squares (e.g., color-coding).
-- Draggable tiles with a uniform size and design.
-
-### 3. **JavaScript (scripts.js)**
-Handles the game logic:
-- **Board Initialization**: Generates the game board with special bonuses.
-- **Tile Management**: Creates a tile bag, replenishes the rack, and manages interactions.
-- **Score Calculation**: Computes scores based on tile placement and bonuses.
-- **Game State**: Tracks placed and submitted tiles, updates scores, and resets the game.
+### 1. **Board Initialization**
+#### Function: **DOMContentLoaded Event Listener**
+- **Purpose**: Sets up a 15x15 Scrabble board with special bonus squares.
+- **Key Steps**:
+  1. Loops through rows and columns to create a grid.
+  2. Identifies special squares (e.g., double-word, triple-letter) based on predefined positions.
+  3. Marks the center square with a star.
+  4. Stores original text for bonus squares for future resets.
 
 ---
 
-## How to Play
+### 2. **Tile Bag Setup**
+#### Data: **tileBag**
+- **Purpose**: Represents the pool of letter tiles, including their distribution and point values.
+- **Structure**: Array of objects where each object contains:
+  - `letter`: The letter on the tile.
+  - `value`: The point value of the tile.
+  - `amount`: The number of such tiles in the bag.
 
-1. **Set Up**
-   - Open `scrabble.html` in a browser to launch the game.
-
-2. **Place Tiles**
-   - Drag tiles from your rack to the board.
-   - Start by placing a tile on the center square (★).
-   - Continue placing adjacent tiles to form words.
-
-3. **Submit Your Turn**
-   - Click the **Submit Turn** button after placing tiles.
-   - The game calculates your turn's score and updates the total score.
-   - The rack replenishes with new tiles.
-
-4. **Shuffle Tiles**
-   - Click the **Shuffle Rack** button to rearrange your rack tiles.
-
-5. **Reset the Game**
-   - Click the **Reset Game** button to restart the game and reset all scores.
+#### Function: **createTileBag**
+- **Purpose**: Generates a mutable pool of tiles based on the `tileBag`.
+- **Key Steps**:
+  1. Uses `flatMap` to replicate each tile by its `amount`.
 
 ---
 
-## Scoring System
+### 3. **Rack Management**
+#### Function: **generateTileRack**
+- **Purpose**: Randomly selects up to 7 tiles from the tile bag to populate the player's rack.
+- **Key Steps**:
+  1. Flattens the tile bag into an array.
+  2. Randomly selects tiles using a loop and updates the bag by splicing.
 
-- Each tile has a base value.
-- Bonuses are applied as follows:
-  - **Double Letter**: Multiplies the tile’s value by 2.
-  - **Triple Letter**: Multiplies the tile’s value by 3.
-  - **Double Word**: Multiplies the word’s total score by 2.
-  - **Triple Word**: Multiplies the word’s total score by 3.
-- The score for each turn adds to the total score.
-
----
-
-## Key Functions
-
-### Board Initialization
-```javascript
-initializeBoard();
-makeBoardDroppable();
-```
-Generates the board and sets up droppable functionality for tiles.
-
-### Tile Rack
-```javascript
-replenishRack();
-shuffleRack();
-```
-Replenishes and shuffles the player's tile rack dynamically.
-
-### Score Calculation
-```javascript
-calculateTileScore(letter, square);
-calculateWordScore(placedTiles);
-```
-Calculates scores for individual tiles and words based on bonuses.
-
-### Game State Management
-```javascript
-updateTotalScore();
-resetGame();
-```
-Manages scores and resets the game state when needed.
+#### Function: **displayTileRack**
+- **Purpose**: Displays tiles on the rack as draggable elements.
+- **Key Steps**:
+  1. Clears existing tiles from the rack.
+  2. Creates draggable `<div>` elements for each tile.
+  3. Sets `img` attributes to show the tile letter and value visually.
 
 ---
 
-## Debugging Tips
+### 4. **Scoring System**
+#### Function: **calculateTileScore**
+- **Purpose**: Computes the score of a single tile based on its letter and any bonus on the square.
+- **Key Steps**:
+  1. Finds the tile's point value in the `tileBag`.
+  2. Applies multipliers for double/triple letter bonus squares if applicable.
 
-- Use the browser console to inspect logs for tile placement and score calculation.
-- Look for errors like missing tiles or invalid placements to troubleshoot issues.
+#### Function: **calculateWordScore**
+- **Purpose**: Computes the score of all newly placed tiles on the board for a turn.
+- **Key Steps**:
+  1. Iterates through placed tiles to sum their scores.
+  2. Applies word multipliers (double/triple word scores).
+  3. Returns the final score for the turn.
+
+---
+
+### 5. **Gameplay Mechanics**
+#### Function: **makeBoardDroppable**
+- **Purpose**: Enables drag-and-drop functionality for placing tiles on the board.
+- **Key Steps**:
+  1. Makes board squares droppable.
+  2. Validates the placement (e.g., adjacency, center square on the first turn).
+  3. Tracks the row/column positions of placed tiles.
+
+#### Function: **submit-turn Event Listener**
+- **Purpose**: Processes the end of a turn by scoring placed tiles and replenishing the rack.
+- **Key Steps**:
+  1. Identifies newly placed tiles.
+  2. Calculates and updates the turn score.
+  3. Locks placed tiles on the board.
+  4. Replenishes the player's rack with new tiles.
+
+#### Function: **replenishRack**
+- **Purpose**: Ensures the rack is replenished to 7 tiles after a turn.
+- **Key Steps**:
+  1. Calculates the number of tiles needed.
+  2. Randomly selects tiles from the bag and adds them to the rack.
+
+---
+
+### 6. **Game Reset and Shuffle**
+#### Function: **reset-game Event Listener**
+- **Purpose**: Resets the game to its initial state.
+- **Key Steps**:
+  1. Clears the board of all placed tiles.
+  2. Restores bonus square labels.
+  3. Resets the rack and score.
+
+#### Function: **shuffle-rack Event Listener**
+- **Purpose**: Randomly rearranges the tiles in the rack.
+- **Key Steps**:
+  1. Implements the Fisher-Yates shuffle algorithm.
+  2. Re-displays the shuffled tiles in the rack.
+
+---
+
+### 7. **Bonus Features**
+- Bonus squares (e.g., double/triple word or letter) are implemented and properly accounted for during scoring.
+- Drag-and-drop interactions are validated to ensure proper gameplay (e.g., adjacency rules).
+
+---
+
+## Notes
+- The game dynamically adapts to a depleted tile bag.
+- Extensive debugging messages are included for testing and validation.
+- CSS and HTML files provide the visual layout for the game.
 
